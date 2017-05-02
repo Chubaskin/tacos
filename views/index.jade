@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenido a #{title}
+
+  // Wrapper
+  #wrapper
+
+      // PUNTAJE
+      #userInfo
+          h2 Puntaje Misiones
+          p
+              strong Name:
+              |  <span id='userInfoName'></span>
+              br
+              strong Puntos:
+              |  <span id='userInfoTotal'></span>
+              br
+              strong Puntos Curso:
+              |  <span id='courseInfoTotal'></span>
+      // /PUNTAJE
+
+      // COMENTARIOS
+      h2 Comentarios
+      #comments
+          table
+              thead
+                  th Mensaje
+                  th Like
+                  th Delete?
+              tbody
+      // /COMENTARIOS
+
+  // /WRAPPER
