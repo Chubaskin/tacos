@@ -1,35 +1,65 @@
 extends layout
+block menu
+  nav.menu
+    ul
+      li 
+        a Inicio
+      li 
+        a Misiones
+      li 
+        a soporte
+      li 
+        a contacto
+      li 
+        a salir 
 
 block content
-  h1= title
-  p Bienvenido a #{title}
+
+  header
+    .container-fluid
+      .row
+        .col-xs-12.col-md-12
+          h1= title
+          h3 Bienvenido a #{title}
 
   // Wrapper
   #wrapper
 
+    section.score
       // PUNTAJE
       #userInfo
-          h2 Puntaje Misiones
-          p
-              strong Name:
-              |  <span id='userInfoName'></span>
-              br
-              strong Puntos:
-              |  <span id='userInfoTotal'></span>
-              br
-              strong Puntos Curso:
-              |  <span id='courseInfoTotal'></span>
-      // /PUNTAJE
+      .container-fluid
+        .row
+          .col-xs-12.col-md-12
+            h2.mora Puntaje Misiones
+            hr.hrMora
+          .col-xs-12.col-md-12
+            p
+                strong Name:
+                |  <span id='userInfoName'></span>
+                br
+                strong Puntos:
+                |  <span id='userInfoTotal'></span>
+                br
+                strong Puntos Curso:
+                |  <span id='courseInfoTotal'></span>
+        // /PUNTAJE
+    
+        // Estado
+        col-xs-12.col-md-12
+            form(action="/postestado" method="POST" enctype="multipart/form-data")
+                textarea.form-control(name="comentario" placeholder="¿qué onda?")
+                input.form-control(type="submit" value="Publicar" class="btn-magda")
+                // /Estado
+          
 
+    section.comentarios
       // COMENTARIOS
       h2 Comentarios
-      #comments
-          table
-              thead
-                  th Mensaje
-                  th Like
-                  th Delete?
-              tbody
+      .container-fluid
+        .row
+          each item in comentario
+            .col-xs-12.col-md-12
+              h4.text-center Precio: $#{item.texto}
       // /COMENTARIOS
-
   // /WRAPPER

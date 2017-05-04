@@ -1,9 +1,11 @@
-const express = require('express'),
-path = require('path'),
-favicon = require('serve-favicon'),
-logger = require('morgan'),
-cookieParser = require('cookie-parser'),
-bodyParser = require('body-parser')
+// Constantes
+const
+    express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    formidable = require('express-formidable');
 
 // Database
 const mongo = require('mongodb')
@@ -23,16 +25,26 @@ app.set('view engine', 'jade')
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use( formidable({
+  encoding: 'utf-8',
+  uploadDir: './static/uploads',
+  keepExtensions: true,
+  multiples: true
+}));
+
+/**************/
 // Make our db accessible to our router
 app.use((req,res,next)=>{
     req.db = db
     next()
 })
+/************/
+
 
 app.use('/', routes)
 app.use('/users', users)
@@ -55,7 +67,7 @@ app.use((err, req, res, next) => {
   res.render('error')
 })
 
-const datos = require('./datos/userdata.json')
-console.log("Usuario: " ,datos.userName)
+// const datos = require('./datos/userdata.json')
+// console.log("Usuario: " ,datos.userName)
 
 module.exports = app

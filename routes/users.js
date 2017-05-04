@@ -1,6 +1,8 @@
 const prettyjson = require('prettyjson');
 const express = require('express');
 const router = express.Router();
+const Comentario = require('../models/comentario');
+
 
 
 /* GET userlist. */
@@ -45,6 +47,38 @@ router.get('/userdata/:id/:activId', (req, res) => {
         res.json(docs);
     });*/
 });
+
+
+/* Obtener comentarios */
+router.get('/comentarios/:uid', (req, res) => {
+
+  Comentario.find((req, retorno) => {
+    if (err)  console.log(err)
+    else {
+      // res.render('index', { title: 'Red Social TasOne', comentario: retorno });
+      res.json(retorno);
+    }
+  })  // find
+
+    /*
+    var db = req.db;
+    var collection = db.get('comentarios');
+    var userPubsToShow =  req.params.uid;
+    console.log(`por ID:${userPubsToShow}`);
+
+    var options = {
+      noColor: true
+    };
+
+    collection.find({ userId : userPubsToShow } , (error, userPubs) => {
+      console.log(prettyjson.render(userPubs, options));
+      res.json(userPubs);
+    });
+ /* */
+
+})
+
+
 
 
 
