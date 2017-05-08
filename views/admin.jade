@@ -1,0 +1,36 @@
+extends layout
+block menu
+	nav.menu
+	ul
+		li
+		a Inicio
+		li 
+		a Estadísticas
+		li 
+		a Ayuda
+		li 
+		a salir 
+
+block content
+		section.nuevoUsuario
+			.container-fluid
+				.row
+					.col-xs-12.col-md-12
+						h2.mora Nuevo Usuario 
+						hr.hrMora
+					.col-xs-12.col-md-12
+						form(action="/create" method="POST" enctype="multipart/form-data")
+							label Nombres
+							input.form-control(type="text" name="firstname" placeholder="Introduce tus nombres")
+							label Apellido
+							input.form-control(type="text" name="lastname" placeholder="Introduce tu apellido")
+							label Imagen
+							input.form-control(type="file" name="fileimage" placeholder="Ingresa tu avatar")
+							label Puntos
+							input.form-control(type="number" name="puntosusuario" placeholder="Puntos acumulados")
+							label PuntosCurso
+							input.form-control(type="number" name="puntoscurso" placeholder="Puntos del Curso")
+							label Publicacion
+							textarea.form-control(name="description" placeholder="Ingresa una descripcion")
+							br
+							input.form-control(type="submit" value="Enviar" class="btn-success")

@@ -1,53 +1,40 @@
 // Constantes
 const
     express = require('express'),
+    jade = require('jade'),
     path = require('path'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    formidable = require('express-formidable');
+    formidable = require('express-formidable'),
+    mongoose = require('mongoose');
 
-// Database
-const mongo = require('mongodb')
-const monk = require('monk')
-// const db = monk('localhost:27017/telefonos')
-const db = monk('localhost:27017/tasbook')
-
+// Rutas
 const routes = require('./routes/index')
 const users = require('./routes/users')
 
 const app = express()
 
-// view engine setup
+// Uso de Jade
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+// Rutas estáticas
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use( formidable({
   encoding: 'utf-8',
-  uploadDir: './static/uploads',
+  uploadDir: './public/uploads',
   keepExtensions: true,
   multiples: true
 }));
 
-/**************/
-// Make our db accessible to our router
-app.use((req,res,next)=>{
-    req.db = db
-    next()
-})
-/************/
-
-
-app.use('/', routes)
-app.use('/users', users)
+// Esta linea debe ir después de la deficnipon de rutas
+app.use('/', routes);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -56,6 +43,16 @@ app.use((req, res, next) => {
   next(err)
 })
 
+
+// Conectar a la Base de datos
+// const db = monk('localhost:27017/tasbook')
+mongoose.connect('mongodb://localhost/tasbook', err => {
+  if (err)  console.log(err)
+  else console.log('Conectado a la BD' );
+});
+
+
+/******
 // error handler
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
@@ -66,6 +63,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500)
   res.render('error')
 })
+***/
 
 // const datos = require('./datos/userdata.json')
 // console.log("Usuario: " ,datos.userName)

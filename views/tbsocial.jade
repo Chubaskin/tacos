@@ -1,0 +1,1015 @@
+doctype html
+html
+	head
+		title TasOne
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		meta(name='keywords', content='Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, \
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+		script(type='application/x-javascript').
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+		// Bootstrap Core CSS
+		link(href='css/bootstrap.min.css', rel='stylesheet', type='text/css')
+		link(href='css/responsive-tables.css', rel='stylesheet', type='text/css')
+		// Custom CSS
+		link(href='css/style.css', rel='stylesheet', type='text/css')
+		// Graph CSS
+		link(href='css/font-awesome.css', rel='stylesheet')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+		// jQuery
+		// lined-icons
+		link(rel='stylesheet', href='css/icon-font.min.css', type='text/css')
+		// //lined-icons
+		// animate
+		link(href='css/animate.css', rel='stylesheet', type='text/css', media='all')
+		script(src='js/wow.min.js')
+		script.
+			new WOW().init();
+		// //end-animate
+		// --webfonts-
+		link(href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic', rel='stylesheet', type='text/css')
+		// -//webfonts-
+		// Meters graphs
+		script(src='js/jquery-1.10.2.min.js')
+		// Emoji Data
+		link(rel='stylesheet', type='text/css', href='css/jquery.emojipicker.css')
+		script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.2.min.js')
+		script(type='text/javascript', src='js/jquery.emojipicker.js')
+		link(rel='stylesheet', type='text/css', href='css/jquery.emojipicker.tw.css')
+		script(type='text/javascript', src='js/jquery.emojis.js')
+		script(type='text/javascript').
+			$(document).ready(function(e) {
+			$('#input-default').emojiPicker();
+			$('#input-custom-size').emojiPicker({
+			width: '300px',
+			height: '200px'
+			});
+			$('#input-left-position').emojiPicker({
+			position: 'left'
+			});
+			$('#create').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker({
+			width: '300px',
+			height: '200px',
+			button: false
+			});
+			});
+			$('#toggle').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker('toggle');
+			});
+			$('#destroy').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker('destroy');
+			})
+			// keyup event is fired
+			$(".emojiable-question, .emojiable-option").on("keyup", function () {
+			//console.log("emoji added, input val() is: " + $(this).val());
+			});
+			});
+		style(type='text/css').
+			input,textarea,button {    padding: 5px 10px;
+			border: 1px solid #cacaca;
+			font-family: inherit;
+			box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+			border-radius: 7px;
+			transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+			-webkit-appearance: none;
+			-moz-appearance: none}
+			#emojiPickerWrap {margin:10px 0 0 0;}
+			.field { padding: 0px 0; }
+	body
+		section
+			// left side start
+			.left-side.sticky-left-side
+				// logo and iconic logo start
+				.logo
+					img(src='images/logo.png')
+				.logo-icon.text-center
+					a(href='index-2.html')
+						img(src='images/icono_logo.png')
+				// logo and iconic logo end
+				.left-side-inner
+					// sidebar nav start
+					ul.nav.nav-pills.nav-stacked.custom-nav
+						li
+							a(href='index-2.html')
+								i.fa.fa-home
+								span Inicio
+						li
+							a(href='#')
+								i.fa.fa-trophy
+								span Premios
+						li
+							a(href='#')
+								i.fa.fa-user
+								span Perfil
+						li.menu-list
+							a(href='#')
+								i.fa.fa-users
+								span Amigos
+						li
+							a(href='#')
+								i.fa.fa-bell
+								span Notificaciones
+						li
+							a(href='#')
+								i.fa.fa-envelope
+								span Mensajes
+						li
+							a(href='#')
+								i.fa.fa-info
+								span Soporte
+						li
+							a(href='#')
+								i.fa.fa-power-off
+								span Cerrar
+					// sidebar nav end
+			// left side end
+			// main content start
+			.main-content
+				#page-wrapper(style='padding-bottom: 50px;')
+					.row
+						.col-md-1.col-xs-1.col-sm-1
+							// toggle button start
+							a.toggle-btn.menu-collapsed
+								i.fa.fa-bars
+							// toggle button end
+						.col-md-2.col-sm-1.hidden-xs
+							#loginContainer.login_box
+								.search-box
+									#sb-search.sb-search
+										form
+											input#search.sb-search-input(placeholder='Buscar...', type='search')
+											input.sb-search-submit(type='submit', value='')
+											span.sb-icon-search  
+								// search-scripts
+								script(src='js/classie.js')
+								script(src='js/uisearch.js')
+								script.
+									new UISearch( document.getElementById( 'sb-search' ) );
+								// //search-scripts
+						.col-md-7.col-xs-11.col-sm-8(align='right')
+							ul.nave.nave-pills
+								li SALIR
+								li CONTACTO
+								li SOPORTE
+								li MISIONES
+								li.active INICIO
+						.col-md-2.col-sm-2.hidden-xs(align='right')
+							.menu-right
+								.user-panel-top
+									.profile_details_left
+										ul.nofitications-dropdown
+											li.dropdown
+												a.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
+													i.fa.fa-envelope
+													span.badge 3
+												ul.dropdown-menu
+													li
+														.notification_header
+															h3 Tiene 3 nuevos mensajes
+													li
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Mensaje número 1
+																p
+																	span hace 1 hora
+															.clearfix
+													li.odd
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Mensaje número 2 
+																p
+																	span hace 1 hora
+															.clearfix
+													li
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Mensaje número 3 
+																p
+																	span hace 1 hora
+															.clearfix
+													li
+														.notification_bottom
+															a(href='#') Ver todos los mensajes
+											li.dropdown
+												a.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
+													i.fa.fa-bell
+													span.badge 3
+												ul.dropdown-menu
+													li
+														.notification_header
+															h3 tiene 3 nuevas notificaciones
+													li
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Notificación número 1
+																p
+																	span hace 1 hora
+															.clearfix
+													li.odd
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Notificación número 2 
+																p
+																	span hace 1 hora
+															.clearfix
+													li
+														a(href='#')
+															.user_img
+																img(src='images/1.png', alt='')
+															.notification_desc
+																p Notificación número 3 
+																p
+																	span hace 1 hora
+															.clearfix
+													li
+														.notification_bottom
+															a(href='#') Ver todas las notificaciones
+											.clearfix
+									.clearfix
+					.row
+						.col-md-10.col-xs-12.col-sm-12
+							.bs-example4(style='background-image:url(images/banner.jpg); background-repeat:no-repeat; background-color:#fdca54; height:100px;')
+								.row
+									.col-md-2.col-xs-3.col-sm-2.col-lg-1
+										a(href='#')
+											img(src='images/icono_foto_perfil.png')
+										a(href='#')
+											img(src='images/avatar.png')
+									.col-md-4.col-xs-8.col-sm-4.col-lg-3
+										p.usuario
+											| Emilia Ortiz Riesco 
+											small @emilia_o
+											br
+											br
+											| TusPuntos: 6.540
+											br
+											| PuntosCurso: 8.560
+									.col-md-5.hidden-xs.col-sm-5.col-lg-7(align='right')
+										a(href='#')
+											img(src='images/misiones.png')
+							.row.bs-example4(style='background-color:#f5f5f5')
+								.col-md-12.col-xs-12.col-sm-12.col-lg-12
+									ul.nave2.nave2-pills
+										li AMIGOS
+										li
+											| MENSAJES 
+											span.badge2.red 3
+										li
+											| NOTIFICACIONES 
+											span.badge2.red 3
+										li PERFIL
+										li.active MURO
+							.row.bs-example4
+								.col-md-8.col-xs-8.col-sm-8.col-lg-8
+									ul.nave3.nave3-pills
+										li Mis Me Gusta
+										li Los + Comentados
+										li.active3 Lo Último
+								.col-md-4.col-xs-4.col-sm-4.col-lg-4
+									select.selectpicker
+										option Todo
+										option Solicitudes de Amistad
+										option Respuesta de Mensajes
+										option Respuesta de Soporte
+							// emoticon
+							.row.bs-example4
+								.col-xs-9.col-sm-9.col-md-6.col-lg-6
+									.row
+										form
+											.col-xs-8.col-sm-8.col-md-8.col-lg-9
+												input#input-custom-size.emojiable-option(type='text', style=' width:100%', placeholder='¿Qué Onda?')
+											.col-xs-2.col-sm-2.col-md-2.col-lg-1
+												h6(style='margin-left:5%; font-size:10px;')
+													input#file-input(name='file-input', type='file', data-input='false', tabindex='-1', style='position: absolute; clip: rect(0px 0px 0px 0px); display:none;')
+													.jfilestyle
+														span.focus-jfilestyle(tabindex='0')
+															label(for='file-input')
+																span
+																	i.fa.fa-camera(aria-hidden='true')
+											.col-xs-2.col-sm-2.col-md-2.col-lg-2
+												.field
+													div
+														input.btn(type='submit', value='Publicar')
+							// fin emoticon
+							hr
+							.row.bs-example4
+								.col-md-4.col-xs-12.col-sm-6.col-lg-4
+									.row.caja_foto
+										.row
+											.col-md-2.col-xs-2.col-sm-2.col-lg-2
+												img.img-responsive(src='images/amigo4.png')
+											.col-md-10.col-xs-10.col-sm-10.col-lg-10
+												h5
+													strong Tomás
+													small @tomas_a 
+													h6
+														small 16.10.2016 - 6:00 AM
+											.row
+												h4
+													small
+														| Mensaje de Tomas
+														span.tx_verde  @tomas_a  #mensaje_tomas
+											.row
+												.col-md-12.col-xs-12.col-sm-12.col-lg-12(align='center')
+													img.img-responsive(src='images/tomi.jpg')
+											.row
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													span.comentar
+													strong   
+												.col-xs-4.col-sm-4.col-md-4.col-lg-4(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											.row.linea_btn(align='center')
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo2.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Sofia Ortiz
+													small  @sofia_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @tomas_a.
+													|  Mensaje uno de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo2.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Sofia Ortiz
+													small  @sofia_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @tomas_a.
+													|  Mensaje dos de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.btn(data-toggle='collapse', data-target='#demo', align='center')
+											span.glyphicon.glyphicon-chevron-down
+										#demo.collapse
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @tomas_a.
+														|  Mensaje uno de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @tomas_a.
+														|  Mensaje dos de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.linea_btn(align='center')
+										.row
+											form
+												.col-xs-8.col-sm-8.col-md-8.col-lg-9
+													input#input-custom-size.emojiable-option(type='text', style=' width:100%', placeholder='¿Qué Onda?')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-1
+													h6(style='margin-left:5%; font-size:10px;')
+														input#file-input(name='file-input', type='file', data-input='false', tabindex='-1', style='position: absolute; clip: rect(0px 0px 0px 0px); display:none;')
+														.jfilestyle
+															span.focus-jfilestyle(tabindex='0')
+																label(for='file-input')
+																	span
+																		i.fa.fa-camera(aria-hidden='true')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													.field
+														div
+															input.btn(type='submit', value='Publicar')
+								.col-md-4.col-xs-12.col-sm-6.col-lg-4
+									.row.caja_foto
+										.row
+											.col-md-2.col-xs-2.col-sm-2.col-lg-2
+												img.img-responsive(src='images/amigo2.png')
+											.col-md-10.col-xs-10.col-sm-10.col-lg-10
+												h5
+													strong Sofia
+													small @sofia_o 
+													h6
+														small 16.10.2016 - 6:00 AM
+											.row
+												h4
+													small
+														| Mensaje de Sofia
+														span.tx_verde  @sofia_o  #mensaje_sofia
+											.row
+												.col-md-12.col-xs-12.col-sm-12.col-lg-12(align='center')
+													img.img-responsive(src='images/sofi.jpg')
+											.row
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													span.comentar
+													strong   
+												.col-xs-4.col-sm-4.col-md-4.col-lg-4(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											.row.linea_btn(align='center')
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo3.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Nicolas Ortiz
+													small  @nicolas_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @sofia_o.
+													|  Mensaje uno de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo3.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Nicolas Ortiz
+													small  @nicolas_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @sofia_o.
+													|  Mensaje dos de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.btn(data-toggle='collapse', data-target='#demo2', align='center')
+											span.glyphicon.glyphicon-chevron-down
+										#demo2.collapse
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @sofia_o.
+														|  Mensaje uno de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @sofia_o.
+														|  Mensaje dos de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.linea_btn(align='center')
+										.row
+											form
+												.col-xs-8.col-sm-8.col-md-8.col-lg-9
+													input#input-custom-size.emojiable-option(type='text', style=' width:100%', placeholder='¿Qué Onda?')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-1
+													h6(style='margin-left:5%; font-size:10px;')
+														input#file-input(name='file-input', type='file', data-input='false', tabindex='-1', style='position: absolute; clip: rect(0px 0px 0px 0px); display:none;')
+														.jfilestyle
+															span.focus-jfilestyle(tabindex='0')
+																label(for='file-input')
+																	span
+																		i.fa.fa-camera(aria-hidden='true')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													.field
+														div
+															input.btn(type='submit', value='Publicar')
+								.col-md-4.col-xs-12.col-sm-6.col-lg-4
+									.row.caja_foto
+										.row
+											.col-md-2.col-xs-2.col-sm-2.col-lg-2
+												img.img-responsive(src='images/amigo4.png')
+											.col-md-10.col-xs-10.col-sm-10.col-lg-10
+												h5
+													strong Pedro
+													small @pedro_o 
+													h6
+														small 16.10.2016 - 6:00 AM
+											.row
+												h4
+													small
+														| Mensaje de Tomas
+														span.tx_verde  @pedro_o  #mensaje_pedro
+											.row
+												.col-md-12.col-xs-12.col-sm-12.col-lg-12(align='center')
+													img.img-responsive(src='images/pedro.jpg')
+											.row
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-3.col-sm-3.col-md-3.col-lg-3(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													span.comentar
+													strong   
+												.col-xs-4.col-sm-4.col-md-4.col-lg-4(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											.row.linea_btn(align='center')
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo2.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Sofia Ortiz
+													small  @sofia_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @pedro_o.
+													|  Mensaje uno de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.row
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												img.img-responsive(src='images/amigo2.png', alt='')
+											.col-xs-10.col-sm-10.col-md-10.col-lg-10
+												h6
+													strong Sofia Ortiz
+													small  @sofia_o  15.12.2015 - 12:46
+												h6
+													| Se puede etiquetar 
+													span.tx_verde @pedro_o.
+													|  Mensaje dos de respuesta al post
+												.col-xs-6.col-sm-6.col-md-6.col-lg-4(align='left')
+													span.glyphicon.glyphicon-heart.like
+													strong
+														small  Me Gusta
+												.col-xs-6.col-sm-6.col-md-6.col-lg-8(align='left')
+													span.glyphicon.glyphicon-comment.comentar
+													strong
+														small Comentar
+												br
+											.col-xs-1.col-sm-1.col-md-1.col-lg-1
+												div(align='right')
+													span.glyphicon.glyphicon-heart.like
+													sub 6
+												div(align='right')
+													span.glyphicon.glyphicon-comment.comentar
+													sub 8
+											hr
+										.btn(data-toggle='collapse', data-target='#demo3', align='center')
+											span.glyphicon.glyphicon-chevron-down
+										#demo3.collapse
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @pedro_o.
+														|  Mensaje uno de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.respuesta
+												.col-xs-2.col-md-2
+													img.img-responsive(src='images/amigo3.png', alt='')
+												.col-xs-8.col-sm-8.col-md-8.col-lg-8
+													h6
+														strong Carlos Ortiz
+														small  @carlos_o  15.12.2015 - 12:46
+													h6
+														| Se puede etiquetar 
+														span.tx_verde @pedro_o.
+														|  Mensaje dos de respuesta a respuesta al post. Aquí termina la cadena, puedes mandar mensajes.
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.glyphicon.glyphicon-heart.like
+														strong
+															small  Me Gusta
+													.col-xs-6.col-sm-6.col-md-6.col-lg-6(align='left')
+														span.fa.fa-paper-plane-o.mensaje
+														strong
+															small  Mensaje
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													div(align='right')
+														span.glyphicon.glyphicon-heart.like
+														sub 6
+													div(align='right')
+														span.fa.fa-paper-plane-o.mensaje
+														sub 8
+											.row.linea_btn(align='center')
+										.row
+											form
+												.col-xs-8.col-sm-8.col-md-8.col-lg-9
+													input#input-custom-size.emojiable-option(type='text', style=' width:100%', placeholder='¿Qué Onda?')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-1
+													h6(style='margin-left:5%; font-size:10px;')
+														input#file-input(name='file-input', type='file', data-input='false', tabindex='-1', style='position: absolute; clip: rect(0px 0px 0px 0px); display:none;')
+														.jfilestyle
+															span.focus-jfilestyle(tabindex='0')
+																label(for='file-input')
+																	span
+																		i.fa.fa-camera(aria-hidden='true')
+												.col-xs-2.col-sm-2.col-md-2.col-lg-2
+													.field
+														div
+															input.btn(type='submit', value='Publicar')
+						.col-md-2.col-xs-12.col-sm-12
+							.linea_derecha(data-example-id='simple-responsive-table')
+								.row.tit_drecha
+									.col-md-12.col-xs-12.col-sm-12
+										p(align='center')  AMIGOS
+								.row.tit_drecha2
+									.col-md-12.col-xs-12.col-sm-12
+										p.sub_menu_derecha(align='center')
+											strong  Conectados 
+											|  I  Curso  I  Otros Amigos
+								#style-2.row.scrollbar
+									.force-overflow
+										.row.caja_derecha
+											.col-md-12.col-xs-6.col-sm-6
+												.row.scrollDiv.scroll_delayed
+													.scroll-content
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo1.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Carlos Ortiz
+																	br
+																	small 30 Amigos en común
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo2.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Sofía Ortiz
+																	br
+																	small 22 Amigos en común
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo3.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Nicolás Ortiz
+																	br
+																	small 11 Amigos en común
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo4.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Pedro Ortiz
+																	br
+																	small 10 Amigos en común
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo4.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Tomás
+																	br
+																	small 8 Amigos en común
+								.row.tit_drecha
+									.col-md-12.col-xs-12.col-sm-12
+										p(align='center')  ACTIVIDAD
+								.row.tit_drecha2
+									.col-md-12.col-xs-12.col-sm-12
+										p.sub_menu_derecha(align='center')
+											strong  Muro 
+											| I Comprensión Lectora  I  Matemática
+								#style-2.row.scrollbar
+									.force-overflow
+										.row.caja_derecha
+											.col-md-12.col-xs-6.col-sm-6
+												.row.scrollDiv.scroll_delayed
+													.scroll-content
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo1.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Carlos Ortiz
+																	br
+																	small Comentó la foto de Emilia Ortiz
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo2.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Sofía Ortiz
+																	br
+																	small y Pedro Ortiz ahora son amigos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo3.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Nicolás Ortiz
+																	br
+																	small Le gusta la foto de Tasone
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo4.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Pedro Ortiz
+																	br
+																	small y Sofía Ortiz son amigos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/amigo4.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Tomás
+																	br
+																	small y Sofía Ortiz son amigos
+														br
+												p  
+								.row.tit_drecha
+									.col-md-12.col-xs-12.col-sm-12
+										p(align='center')  TOP 10
+								.row.tit_drecha2
+									.col-md-12.col-xs-12.col-sm-12
+										p.sub_menu_derecha(align='center')
+											strong  Colegios 
+											| I  Tu Colegio  I  Cursos  I  Alumnos
+								#style-2.row.scrollbar
+									.force-overflow
+										.row.caja_derecha
+											.col-md-12.col-xs-6.col-sm-6
+												.row.scrollDiv.scroll_delayed
+													.scroll-content
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/01.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número uno
+																	br
+																	small 5.890 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/02.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número dos
+																	br
+																	small 5.620 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/03.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número tres
+																	br
+																	small 5.060 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/04.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número cuatro
+																	br
+																	small 4.920 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/05.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número cinco
+																	br
+																	small 4.310 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/06.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número seis
+																	br
+																	small 4.200 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/07.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número siete
+																	br
+																	small 4.000 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/08.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número ocho
+																	br
+																	small 3.810 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/09.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número nueve
+																	br
+																	small 3.470 Puntos
+														.row.caja_derecha
+															.col-md-4.col-xs-4.col-sm-4
+																img(src='images/10.png')
+															.col-md-8.col-xs-6.col-sm-6
+																p
+																	strong Colegio número diez
+																	br
+																	small 2.980 Puntos
+								br
+								br
+					// body wrapper start
+				// body wrapper end
+			// main content end

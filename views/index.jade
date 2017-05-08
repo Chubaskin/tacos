@@ -36,15 +36,15 @@ block content
           .col-xs-12.col-md-12
             p
                 strong Name:
-                |  <span id='userInfoName'></span>
+                |  <span id='userInfoName'>#{Jugador.nombreCompleto}</span>
                 br
                 strong Puntos:
-                |  <span id='userInfoTotal'></span>
+                |  <span id='userInfoTotal'>#{Jugador.userPointsTotal}</span>
                 br
                 strong Puntos Curso:
-                |  <span id='courseInfoTotal'></span>
+                |  <span id='courseInfoTotal'>#{Jugador.userPointsClass}</span>
         // /PUNTAJE
-    
+
         // Estado
         col-xs-12.col-md-12
             form(action="/postestado" method="POST" enctype="multipart/form-data")
@@ -60,6 +60,6 @@ block content
         .row
           each item in comentario
             .col-xs-12.col-md-12
-              h4.text-center Precio: $#{item.texto}
+              h4.text-center Com: #{item.texto}
       // /COMENTARIOS
   // /WRAPPER
