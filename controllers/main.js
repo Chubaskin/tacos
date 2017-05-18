@@ -21,7 +21,7 @@ exports.init = (req, resp) => {
     if (err)  console.log("(10) Error:" + err)
     else {
       Jugador1 = retorno || {};
-      // console.log("(24) Jugador1: "+Jugador1);
+      console.log("(24) Jugador1: "+Jugador1);
     }  // endif
   });  // find
   /****/
@@ -100,19 +100,35 @@ exports.create = (req, resp) => {
 exports.clone2 = (req, resp) => {
 
   var datosJugador = "Pepito";
+
+  let Jugador1 = {};
+/****
+  Usuario.findById(userIdTest,(err, retorno) => {
+  //Jugador.find({userId:userIdTest},(err, retorno) => {
+    if (err)  console.log("(110) Error:" + err)
+    else {
+      Jugador1 = retorno || {};
+      console.log("(111) Jugador1: "+Jugador1);
+    }  // endif
+  });  // find
+  /****/
+
+
 /****/
-  const promesa = Jugador.find({userId:userIdTest}).exec();
+// const promesa = Jugador.find({userId:userIdTest}).exec();
+const promesa = Usuario.findOne({ _id: userIdTest}).exec();
 
   promesa.then((retorno) => {
       datosJugador = retorno || {};
 
       console.log("(110) Jugador1: "+prettyjson.render(datosJugador,{}));
-      resp.send(datosJugador).end;
+      resp.render('tbsocial', { title: 'Red Social TasOne', Jugador: datosJugador });
+      // resp.send(datosJugador).end;
   })
   .catch( (err) => {
-      console.log("(104) Error:" + err)
+      console.log("(114) Error:" + err)
   });
-  console.log("(114) Jugador1: "+prettyjson.render(datosJugador,{}));
+  console.log("(116) Jugador1: "+prettyjson.render(datosJugador,{}));
 }  // clone
 
 //---------------------------------
@@ -123,12 +139,14 @@ exports.clone = (req, resp, next, uid) => {
   Usuario.findById(uid).exec().then((retorno) => {
     if (!retorno) {
       console.error("Not Found!");
+      error.status = 404;
+      throw error;
     } // if
     datosJugador = retorno || {};
     console.log("(114) Jugador1: "+prettyjson.render(datosJugador,{}));
     return next();
 
-  })  // find
+  }).catch(next);  // find
 
 /****
   Usuario.findById(userIdTest,(err, retorno) => {
@@ -146,24 +164,9 @@ exports.clone = (req, resp, next, uid) => {
 }  // clone
 
 
-router.param("qID", (request, response, next, qID) => {
-    Question.findById(qID).exec().then((question) => { //Query#exec returns a promise
-        if (!question) {
-            error = new Error("Not Found");
-            error.status = 404;
-            throw error;
-        }
-        request.question = question;
-        return next();
-    }).catch(next); //Promise#catch always gets errors, so send it next() to pass it along to the error handlers; see app.js:35
-});
 
 
-
-
-
-
-exports.newcomment = (req,resp) => {
+exports.newcomment = (req,resp, next) => {
    // resp.send(req.fields.comentario);
 
    let argsTotal = req.fields.comentario;
@@ -175,7 +178,7 @@ exports.newcomment = (req,resp) => {
 
    let data = new Comentario({
      version : 0.1,
-     userId  : userId,
+     userId  : userIdTest,
      texto   : req.fields.comentario,
      imagen  : '',
      fecha: new Date(),

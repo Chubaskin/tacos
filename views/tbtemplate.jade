@@ -1,0 +1,86 @@
+doctype html
+html
+	head
+		title TasOne
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		meta(name='keywords', content='Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, \
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+		script(type='application/x-javascript').
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+		// Bootstrap Core CSS
+		link(href='css/bootstrap.min.css', rel='stylesheet', type='text/css')
+		link(href='css/responsive-tables.css', rel='stylesheet', type='text/css')
+		// Custom CSS
+		link(href='css/style.css', rel='stylesheet', type='text/css')
+		// Graph CSS
+		link(href='css/font-awesome.css', rel='stylesheet')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+		// jQuery
+		// lined-icons
+		link(rel='stylesheet', href='css/icon-font.min.css', type='text/css')
+		// //lined-icons
+		// animate
+		link(href='css/animate.css', rel='stylesheet', type='text/css', media='all')
+		script(src='js/wow.min.js')
+		script.
+			new WOW().init();
+		// //end-animate
+		// --webfonts-
+		link(href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic', rel='stylesheet', type='text/css')
+		// -//webfonts-
+		// Meters graphs
+		script(src='js/jquery-1.10.2.min.js')
+		// Emoji Data
+		link(rel='stylesheet', type='text/css', href='css/jquery.emojipicker.css')
+		script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.2.min.js')
+		script(type='text/javascript', src='js/jquery.emojipicker.js')
+		link(rel='stylesheet', type='text/css', href='css/jquery.emojipicker.tw.css')
+		script(type='text/javascript', src='js/jquery.emojis.js')
+		script(type='text/javascript').
+			$(document).ready(function(e) {
+			$('#input-default').emojiPicker();
+			$('#input-custom-size').emojiPicker({
+			width: '300px',
+			height: '200px'
+			});
+			$('#input-left-position').emojiPicker({
+			position: 'left'
+			});
+			$('#create').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker({
+			width: '300px',
+			height: '200px',
+			button: false
+			});
+			});
+			$('#toggle').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker('toggle');
+			});
+			$('#destroy').click(function(e) {
+			e.preventDefault();
+			$('#text-custom-trigger').emojiPicker('destroy');
+			})
+			// keyup event is fired
+			$(".emojiable-question, .emojiable-option").on("keyup", function () {
+			//console.log("emoji added, input val() is: " + $(this).val());
+			});
+			});
+		style(type='text/css').
+			input,textarea,button {    padding: 5px 10px;
+			border: 1px solid #cacaca;
+			font-family: inherit;
+			box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+			border-radius: 7px;
+			transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+			-webkit-appearance: none;
+			-moz-appearance: none}
+			#emojiPickerWrap {margin:10px 0 0 0;}
+			.field { padding: 0px 0; }
+	body
+	block hooverMenu
+	block topMenu1
+	block topMenu2
+	block contenido
