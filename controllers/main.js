@@ -3,7 +3,7 @@ const Usuario = require('../models/user');
 const prettyjson = require('prettyjson');
 
 // const userIdTest = "5900e083baf099a4a7d95776";
-const userIdTest = "00010234234123";
+const userIdTest = "5910681ac665ba72d5e7ad3a";
 
 exports.test = (req, resp) => {
   resp.send('Hola mundo desde controlador main').end;
@@ -12,19 +12,16 @@ exports.test = (req, resp) => {
 
 
 
-
-
 // ----------------------------
 exports.init = (req, resp) => {
   let Jugador1 = {};
-/****
-  Usuario.find((err, retorno) => {
+/****/
+  Usuario.findById(userIdTest,(err, retorno) => {
   //Jugador.find({userId:userIdTest},(err, retorno) => {
     if (err)  console.log("(10) Error:" + err)
     else {
       Jugador1 = retorno || {};
-      // console.log("(14) Jugador1: "+Jugador1);
-      console.log(prettyjson.render(retorno, {}));
+      // console.log("(24) Jugador1: "+Jugador1);
     }  // endif
   });  // find
   /****/
@@ -97,10 +94,71 @@ exports.create = (req, resp) => {
 
 }
 
+
+
 //---------------------------------
-exports.clone = (req, resp) => {
-  resp.render('tbsocial', { title: 'Red Social TasOne'});
+exports.clone2 = (req, resp) => {
+
+  var datosJugador = "Pepito";
+/****/
+  const promesa = Jugador.find({userId:userIdTest}).exec();
+
+  promesa.then((retorno) => {
+      datosJugador = retorno || {};
+
+      console.log("(110) Jugador1: "+prettyjson.render(datosJugador,{}));
+      resp.send(datosJugador).end;
+  })
+  .catch( (err) => {
+      console.log("(104) Error:" + err)
+  });
+  console.log("(114) Jugador1: "+prettyjson.render(datosJugador,{}));
 }  // clone
+
+//---------------------------------
+exports.clone = (req, resp, next, uid) => {
+
+  var datosJugador = "";
+
+  Usuario.findById(uid).exec().then((retorno) => {
+    if (!retorno) {
+      console.error("Not Found!");
+    } // if
+    datosJugador = retorno || {};
+    console.log("(114) Jugador1: "+prettyjson.render(datosJugador,{}));
+    return next();
+
+  })  // find
+
+/****
+  Usuario.findById(userIdTest,(err, retorno) => {
+    if (err)  console.log("(104) Error:" + err)
+    else {
+      datosJugador = retorno || {};
+    }  // endif
+  });  // find
+  /****/
+  console.log("(114) Jugador1: "+prettyjson.render(datosJugador,{}));
+
+// resp.render('tbsocial', { title: 'Red Social TasOne'});
+//  resp.render('tbsocial', { title: 'Red Social TasOne', Jugador: Jugador1 });
+  // resp.render('tbsocial', { title: 'Red Social TasOne', Jugador: {} });
+}  // clone
+
+
+router.param("qID", (request, response, next, qID) => {
+    Question.findById(qID).exec().then((question) => { //Query#exec returns a promise
+        if (!question) {
+            error = new Error("Not Found");
+            error.status = 404;
+            throw error;
+        }
+        request.question = question;
+        return next();
+    }).catch(next); //Promise#catch always gets errors, so send it next() to pass it along to the error handlers; see app.js:35
+});
+
+
 
 
 

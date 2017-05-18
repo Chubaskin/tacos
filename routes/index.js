@@ -8,7 +8,7 @@ const main = require('.././controllers/main');
 router.get('/', main.init);
 router.get('/admin', main.admin);
 router.post('/create', main.create);
-router.get('/tb', main.clone );
+router.get('/tb', main.clone2 );
 router.post('/postestado', main.newcomment);
 router.get('/test', main.test);
 
